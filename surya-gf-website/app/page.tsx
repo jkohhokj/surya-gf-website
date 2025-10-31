@@ -6,23 +6,22 @@ import { Heart, Sparkles, ArrowRight, Star } from 'lucide-react';
 export default function GirlfriendProposal() {
   const [stage, setStage] = useState(0);
   const [showImage, setShowImage] = useState(false);
-  const [imageIndex, setImageIndex] = useState(0);
+  const [imageIndex, setImageIndex] = useState(2);
   const [answer, setAnswer] = useState<string | null>(null);
   const [noButtonScale, setNoButtonScale] = useState(1);
   const [yesButtonScale, setYesButtonScale] = useState(1);
 
   // Placeholder images - replace with your own image URLs
   const images = [
-    'https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=800',
-    'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=800',
-    'https://images.unsplash.com/photo-1518635017498-87f514b751ba?w=800',
-    'https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?w=800',
-    'https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=800'
+    'images/image1.jpg',
+    'images/image2.jpg',
+    'images/image3.jpg',
   ];
 
   const handleNext = () => {
-    const randomIndex = Math.floor(Math.random() * images.length);
-    setImageIndex(randomIndex);
+    // const randomIndex = Math.floor(Math.random() * images.length);
+    // setImageIndex(randomIndex);
+    setImageIndex((imageIndex + 1) % 3);
     setStage(stage + 1);
   };
 
@@ -36,11 +35,11 @@ export default function GirlfriendProposal() {
   };
 
   const handleNo = () => {
-    const randomIndex = Math.floor(Math.random() * images.length);
-    setImageIndex(randomIndex);
-    setShowImage(true);
+    // const randomIndex = Math.floor(Math.random() * images.length);
+    // setImageIndex(randomIndex);
+    // setShowImage(true);
     setAnswer('no');
-    setNoButtonScale(0.8);
+    // setNoButtonScale(0.8);
     setTimeout(() => setNoButtonScale(1), 300);
   };
 
@@ -225,10 +224,7 @@ export default function GirlfriendProposal() {
                 ) : (
                   <div className="animate-pulse">
                     <p className="text-2xl md:text-3xl font-bold text-blue-400 mb-1">
-                      That&apos;s okay... 💙
-                    </p>
-                    <p className="text-slate-300 text-base">
-                      But maybe you&apos;ll change your mind? 🥺
+                      You can&apos;t click no.
                     </p>
                   </div>
                 )}
