@@ -1,12 +1,13 @@
-"use client";
-import React, { useState } from 'react';
+'use client';
+
+import { useState } from 'react';
 import { Heart, Sparkles, ArrowRight, Star } from 'lucide-react';
 
 export default function GirlfriendProposal() {
   const [stage, setStage] = useState(0);
   const [showImage, setShowImage] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);
-  const [answer, setAnswer] = useState(null);
+  const [answer, setAnswer] = useState<string | null>(null);
   const [noButtonScale, setNoButtonScale] = useState(1);
   const [yesButtonScale, setYesButtonScale] = useState(1);
 
@@ -66,22 +67,22 @@ export default function GirlfriendProposal() {
       <div className="relative z-10 max-w-2xl w-full">
         {/* Stage 0: Initial greeting */}
         {stage === 0 && (
-          <div className="bg-slate-800 bg-opacity-80 backdrop-blur-lg rounded-3xl shadow-2xl p-8 md:p-12 border border-pink-500 border-opacity-30 animate-fadeIn">
+          <div className="bg-slate-800 bg-opacity-80 backdrop-blur-lg rounded-3xl shadow-2xl p-6 md:p-8 border border-pink-500 border-opacity-30 animate-fadeIn">
             <div className="text-center">
-              <div className="flex justify-center mb-6">
-                <Heart className="text-pink-400 animate-pulse" size={64} />
+              <div className="flex justify-center mb-4">
+                <Heart className="text-pink-400 animate-pulse" size={56} />
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-pink-300 mb-6">
+              <h1 className="text-3xl md:text-4xl font-bold text-pink-300 mb-4">
                 Hey... 💕
               </h1>
-              <p className="text-slate-300 text-xl md:text-2xl mb-8 leading-relaxed">
+              <p className="text-slate-300 text-lg md:text-xl mb-6 leading-relaxed">
                 I have something important to tell you...
               </p>
               <button
                 onClick={handleNext}
-                className="bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-white font-bold py-4 px-10 rounded-full shadow-lg hover:shadow-pink-500/50 transition-all duration-300 text-lg flex items-center gap-2 mx-auto"
+                className="bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-pink-500/50 transition-all duration-300 text-base flex items-center gap-2 mx-auto"
               >
-                Continue <ArrowRight size={20} />
+                Continue <ArrowRight size={18} />
               </button>
             </div>
           </div>
@@ -89,34 +90,34 @@ export default function GirlfriendProposal() {
 
         {/* Stage 1: Building suspense */}
         {stage === 1 && (
-          <div className="bg-slate-800 bg-opacity-80 backdrop-blur-lg rounded-3xl shadow-2xl p-8 md:p-12 border border-pink-500 border-opacity-30 animate-fadeIn">
+          <div className="bg-slate-800 bg-opacity-80 backdrop-blur-lg rounded-3xl shadow-2xl p-6 md:p-8 border border-pink-500 border-opacity-30 animate-fadeIn">
             <div className="text-center">
-              <div className="flex justify-center mb-6">
-                <Sparkles className="text-yellow-400 animate-spin" size={64} style={{ animationDuration: '3s' }} />
+              <div className="flex justify-center mb-3">
+                <Sparkles className="text-yellow-400 animate-spin" size={48} style={{ animationDuration: '3s' }} />
               </div>
-              <h1 className="text-3xl md:text-4xl font-bold text-pink-300 mb-6">
-                Every time I'm with you...
+              <h1 className="text-2xl md:text-3xl font-bold text-pink-300 mb-3">
+                Every time I&apos;m with you...
               </h1>
-              <p className="text-slate-300 text-lg md:text-xl mb-6 leading-relaxed">
+              <p className="text-slate-300 text-base md:text-lg mb-4 leading-relaxed">
                 I feel like the luckiest person in the world ✨
               </p>
               
               {/* Image */}
-              <div className="mb-6 animate-fadeIn">
-                <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-pink-400 border-opacity-50">
+              <div className="mb-4 animate-fadeIn">
+                <div className="rounded-xl overflow-hidden shadow-2xl border-2 border-pink-400 border-opacity-50">
                   <img
                     src={images[imageIndex]}
                     alt="Special moment"
-                    className="w-full h-64 md:h-80 object-cover"
+                    className="w-full h-48 md:h-56 object-cover"
                   />
                 </div>
               </div>
               
               <button
                 onClick={handleNext}
-                className="bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-white font-bold py-4 px-10 rounded-full shadow-lg hover:shadow-pink-500/50 transition-all duration-300 text-lg flex items-center gap-2 mx-auto"
+                className="bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-pink-500/50 transition-all duration-300 text-base flex items-center gap-2 mx-auto"
               >
-                Keep going <ArrowRight size={20} />
+                Keep going <ArrowRight size={18} />
               </button>
             </div>
           </div>
@@ -124,36 +125,36 @@ export default function GirlfriendProposal() {
 
         {/* Stage 2: More suspense */}
         {stage === 2 && (
-          <div className="bg-slate-800 bg-opacity-80 backdrop-blur-lg rounded-3xl shadow-2xl p-8 md:p-12 border border-pink-500 border-opacity-30 animate-fadeIn">
+          <div className="bg-slate-800 bg-opacity-80 backdrop-blur-lg rounded-3xl shadow-2xl p-6 md:p-8 border border-pink-500 border-opacity-30 animate-fadeIn">
             <div className="text-center">
-              <div className="flex justify-center mb-6 gap-4">
-                <Star className="text-yellow-300 animate-bounce" size={48} style={{ animationDelay: '0s' }} />
-                <Star className="text-yellow-300 animate-bounce" size={48} style={{ animationDelay: '0.1s' }} />
-                <Star className="text-yellow-300 animate-bounce" size={48} style={{ animationDelay: '0.2s' }} />
+              <div className="flex justify-center mb-3 gap-3">
+                <Star className="text-yellow-300 animate-bounce" size={36} style={{ animationDelay: '0s' }} />
+                <Star className="text-yellow-300 animate-bounce" size={36} style={{ animationDelay: '0.1s' }} />
+                <Star className="text-yellow-300 animate-bounce" size={36} style={{ animationDelay: '0.2s' }} />
               </div>
-              <h1 className="text-3xl md:text-4xl font-bold text-pink-300 mb-6">
+              <h1 className="text-2xl md:text-3xl font-bold text-pink-300 mb-3">
                 You make me smile...
               </h1>
-              <p className="text-slate-300 text-lg md:text-xl mb-6 leading-relaxed">
+              <p className="text-slate-300 text-base md:text-lg mb-4 leading-relaxed">
                 Even on the hardest days 🌟
               </p>
               
               {/* Image */}
-              <div className="mb-6 animate-fadeIn">
-                <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-yellow-400 border-opacity-50">
+              <div className="mb-4 animate-fadeIn">
+                <div className="rounded-xl overflow-hidden shadow-2xl border-2 border-yellow-400 border-opacity-50">
                   <img
                     src={images[imageIndex]}
                     alt="Special moment"
-                    className="w-full h-64 md:h-80 object-cover"
+                    className="w-full h-48 md:h-56 object-cover"
                   />
                 </div>
               </div>
               
               <button
                 onClick={handleNext}
-                className="bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-white font-bold py-4 px-10 rounded-full shadow-lg hover:shadow-pink-500/50 transition-all duration-300 text-lg flex items-center gap-2 mx-auto"
+                className="bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-pink-500/50 transition-all duration-300 text-base flex items-center gap-2 mx-auto"
               >
-                Almost there <ArrowRight size={20} />
+                Almost there <ArrowRight size={18} />
               </button>
             </div>
           </div>
@@ -161,34 +162,34 @@ export default function GirlfriendProposal() {
 
         {/* Stage 3: Building more */}
         {stage === 3 && (
-          <div className="bg-slate-800 bg-opacity-80 backdrop-blur-lg rounded-3xl shadow-2xl p-8 md:p-12 border border-pink-500 border-opacity-30 animate-fadeIn">
+          <div className="bg-slate-800 bg-opacity-80 backdrop-blur-lg rounded-3xl shadow-2xl p-6 md:p-8 border border-pink-500 border-opacity-30 animate-fadeIn">
             <div className="text-center">
-              <div className="flex justify-center mb-6">
-                <Heart className="text-red-400 animate-pulse" size={64} />
+              <div className="flex justify-center mb-3">
+                <Heart className="text-red-400 animate-pulse" size={48} />
               </div>
-              <h1 className="text-3xl md:text-4xl font-bold text-pink-300 mb-6">
-                And I can't imagine...
+              <h1 className="text-2xl md:text-3xl font-bold text-pink-300 mb-3">
+                And I can&apos;t imagine...
               </h1>
-              <p className="text-slate-300 text-lg md:text-xl mb-6 leading-relaxed">
+              <p className="text-slate-300 text-base md:text-lg mb-4 leading-relaxed">
                 My life without you in it 💖
               </p>
               
               {/* Image */}
-              <div className="mb-6 animate-fadeIn">
-                <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-red-400 border-opacity-50">
+              <div className="mb-4 animate-fadeIn">
+                <div className="rounded-xl overflow-hidden shadow-2xl border-2 border-red-400 border-opacity-50">
                   <img
                     src={images[imageIndex]}
                     alt="Special moment"
-                    className="w-full h-64 md:h-80 object-cover"
+                    className="w-full h-48 md:h-56 object-cover"
                   />
                 </div>
               </div>
               
               <button
                 onClick={handleNext}
-                className="bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-white font-bold py-4 px-10 rounded-full shadow-lg hover:shadow-pink-500/50 transition-all duration-300 text-lg flex items-center gap-2 mx-auto animate-pulse"
+                className="bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-pink-500/50 transition-all duration-300 text-base flex items-center gap-2 mx-auto animate-pulse"
               >
-                One more thing... <ArrowRight size={20} />
+                One more thing... <ArrowRight size={18} />
               </button>
             </div>
           </div>
@@ -196,38 +197,38 @@ export default function GirlfriendProposal() {
 
         {/* Stage 4: The big question */}
         {stage === 4 && (
-          <div className="bg-slate-800 bg-opacity-80 backdrop-blur-lg rounded-3xl shadow-2xl p-8 md:p-12 border border-pink-500 border-opacity-30 animate-fadeIn">
-            <div className="text-center mb-8">
-              <div className="flex justify-center mb-4">
-                <Sparkles className="text-pink-400 animate-spin" size={64} style={{ animationDuration: '3s' }} />
+          <div className="bg-slate-800 bg-opacity-80 backdrop-blur-lg rounded-3xl shadow-2xl p-6 md:p-8 border border-pink-500 border-opacity-30 animate-fadeIn">
+            <div className="text-center mb-4">
+              <div className="flex justify-center mb-3">
+                <Sparkles className="text-pink-400 animate-spin" size={48} style={{ animationDuration: '3s' }} />
               </div>
-              <h1 className="text-4xl md:text-6xl font-bold text-pink-300 mb-4 animate-pulse">
+              <h1 className="text-3xl md:text-4xl font-bold text-pink-300 mb-2 animate-pulse">
                 Will You Be My Girlfriend?
               </h1>
-              <p className="text-slate-300 text-lg md:text-xl mb-6">
-                I've been wanting to ask you this... 💕
+              <p className="text-slate-300 text-base md:text-lg mb-4">
+                I&apos;ve been wanting to ask you this... 💕
               </p>
             </div>
 
             {/* Answer display */}
             {answer && (
-              <div className="mb-8 text-center">
+              <div className="mb-4 text-center">
                 {answer === 'yes' ? (
                   <div className="animate-bounce">
-                    <p className="text-3xl md:text-4xl font-bold text-green-400 mb-2">
+                    <p className="text-2xl md:text-3xl font-bold text-green-400 mb-1">
                       Yes! 🎉
                     </p>
-                    <p className="text-pink-300 text-xl">
+                    <p className="text-pink-300 text-base">
                       You just made me the happiest person ever! 💖
                     </p>
                   </div>
                 ) : (
                   <div className="animate-pulse">
-                    <p className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">
-                      That's okay... 💙
+                    <p className="text-2xl md:text-3xl font-bold text-blue-400 mb-1">
+                      That&apos;s okay... 💙
                     </p>
-                    <p className="text-slate-300 text-xl">
-                      But maybe you'll change your mind? 🥺
+                    <p className="text-slate-300 text-base">
+                      But maybe you&apos;ll change your mind? 🥺
                     </p>
                   </div>
                 )}
@@ -235,22 +236,22 @@ export default function GirlfriendProposal() {
             )}
 
             {/* Buttons */}
-            <div className="flex gap-4 justify-center mb-8">
+            <div className="flex gap-3 justify-center mb-4">
               <button
                 onClick={handleYes}
-                className="bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-white font-bold py-4 px-8 md:px-12 rounded-full shadow-lg hover:shadow-pink-500/50 transition-all duration-300 text-lg md:text-xl"
+                className="bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-white font-bold py-3 px-6 md:px-8 rounded-full shadow-lg hover:shadow-pink-500/50 transition-all duration-300 text-base md:text-lg"
                 style={{
                   transform: `scale(${yesButtonScale})`,
                   transition: 'transform 0.3s ease'
                 }}
               >
-                <Heart className="inline mr-2" size={24} />
+                <Heart className="inline mr-1" size={20} />
                 Yes! 💕
               </button>
               
               <button
                 onClick={handleNo}
-                className="bg-gradient-to-r from-slate-600 to-slate-700 hover:from-slate-700 hover:to-slate-800 text-white font-bold py-4 px-8 md:px-12 rounded-full shadow-lg hover:shadow-slate-500/50 transition-all duration-300 text-lg md:text-xl"
+                className="bg-gradient-to-r from-slate-600 to-slate-700 hover:from-slate-700 hover:to-slate-800 text-white font-bold py-3 px-6 md:px-8 rounded-full shadow-lg hover:shadow-slate-500/50 transition-all duration-300 text-base md:text-lg"
                 style={{
                   transform: `scale(${noButtonScale})`,
                   transition: 'transform 0.3s ease'
@@ -262,18 +263,18 @@ export default function GirlfriendProposal() {
 
             {/* Image display */}
             {showImage && (
-              <div className="mt-6 animate-fadeIn">
-                <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-pink-400 border-opacity-50">
+              <div className="mt-4 animate-fadeIn">
+                <div className="rounded-xl overflow-hidden shadow-2xl border-2 border-pink-400 border-opacity-50">
                   <img
                     src={images[imageIndex]}
                     alt="Special moment"
-                    className="w-full h-64 md:h-96 object-cover"
+                    className="w-full h-48 md:h-56 object-cover"
                     style={{
                       animation: 'fadeIn 0.5s ease-in'
                     }}
                   />
                 </div>
-                <p className="text-center text-pink-300 mt-4 text-sm">
+                <p className="text-center text-pink-300 mt-2 text-xs">
                   A special memory for us 💫
                 </p>
               </div>
